@@ -83,6 +83,7 @@ var androidmk_allowlist []string = []string{
 	"external/thermal_daemon/Android.mk",
 	"external/tree/Android.mk",
 	"external/iptsd/Android.mk",
+	"device/generic/x86_64_tablet/Android.mk",
 }
 
 func getAllLines(ctx Context, filename string) []string {
