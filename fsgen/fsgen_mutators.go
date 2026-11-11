@@ -454,6 +454,11 @@ func collectDepsMutator(mctx android.BottomUpMutatorContext) {
 			android.RamdiskVariation,
 			android.VendorRamdiskVariation,
 			android.RecoveryVariation,
+			// Without vendor/product partitions (x86 tablets install them under
+			// system/vendor and system/product), vendor and product variants tag as
+			// system but cannot be packaged as core modules of the system image.
+			android.VendorVariation,
+			android.ProductVariation,
 		})
 		if isEligibleForFsDeps(mctx) && !systemPartitionFalsePositive {
 			appendDepIfAppropriate(mctx, fsGenState.fsDeps[installPartition], installPartition, android.NativeBridgeDisabled, mctx.ModuleName())
